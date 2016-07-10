@@ -73,6 +73,95 @@ namespace PolynomialLibrary
             return new Polynomial(buff);
         }
 
+        public static Polynomial operator -(Polynomial p1, Polynomial p2)
+        {
+            int[] resultCoefficients;
+
+            if (p1.Power > p2.Power)
+                resultCoefficients = new int[p1.Power + 1];
+            else
+                resultCoefficients = new int[p2.Power + 1];
+
+            for (int i = 0; i < resultCoefficients.Length; i++)
+            {
+                if (p1.IndexOfPower(i) != -1)
+                {
+                    if (p2.IndexOfPower(i) != -1)
+                        resultCoefficients[i] = p1.polynomialElements[p1.IndexOfPower(i)].Coefficient - p2.polynomialElements[p2.IndexOfPower(i)].Coefficient;
+                    else
+                        resultCoefficients[i] = p1.polynomialElements[p1.IndexOfPower(i)].Coefficient;
+                }
+                else
+                {
+                    if (p2.IndexOfPower(i) != -1)
+                        resultCoefficients[i] = -p2.polynomialElements[p2.IndexOfPower(i)].Coefficient;
+                    else
+                        resultCoefficients[i] = 0;
+                }
+            }
+
+            int[] buff = new int[resultCoefficients.Length];
+
+            for (int i = resultCoefficients.Length - 1, j = 0; i >= 0; i--, j++)
+                buff[j] = resultCoefficients[i];
+
+            return new Polynomial(buff);
+        }
+
+        public static Polynomial operator *(Polynomial p1, Polynomial p2)
+        {
+            int[] resultCoefficients = new int[p1.Power + p2.Power + 1];
+
+            for (int i = 0; i < p1.polynomialElements.Length; i++)
+            {
+                for (int j = 0; j < p2.polynomialElements.Length; j++)
+                {
+
+                    int resPower = p1.polynomialElements[i].Power + p2.polynomialElements[j].Power;
+                    int resCoeff = p1.polynomialElements[i].Coefficient * p2.polynomialElements[j].Coefficient;
+
+                    resultCoefficients[resPower] += resCoeff;
+                }
+            }
+
+            int[] buff = new int[resultCoefficients.Length];
+
+            for (int i = resultCoefficients.Length - 1, j = 0; i >= 0; i--, j++)
+                buff[j] = resultCoefficients[i];
+
+            return new Polynomial(buff);
+        }
+
+        public static bool operator ==(Polynomial p1, Polynomial p2)
+        {
+            if (p1.Power != p2.Power)
+                return false;
+
+            for (int i = 0; i < p1.polynomialElements.Length; i++)
+            {
+                if ((p1.polynomialElements[i].Power != p2.polynomialElements[i].Power) ||
+                    (p1.polynomialElements[i].Coefficient != p2.polynomialElements[i].Coefficient))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static bool operator !=(Polynomial p1, Polynomial p2)
+        {
+            if (p1.Power != p2.Power)
+                return true;
+
+            for (int i = 0; i < p1.polynomialElements.Length; i++)
+            {
+                if ((p1.polynomialElements[i].Power != p2.polynomialElements[i].Power) ||
+                    (p1.polynomialElements[i].Coefficient != p2.polynomialElements[i].Coefficient))
+                    return true;
+            }
+
+            return false;
+        }
+
         private int IndexOfPower(int power)
         {
             for (int i = 0; i < polynomialElements.Length; i++)
@@ -87,15 +176,37 @@ namespace PolynomialLibrary
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < polynomialElements.Length; i++)
             {
-                if (polynomialElements[i].Power <= 1)
+                if (polynomialElements[i].Power == 1)
                 {
-                    if (polynomialElements[i].Power == 0)
-                        result.Append(polynomialElements[i].Coefficient);
+                    if (polynomialElements[i].Coefficient < 0)
+                        result.Append(" " + polynomialElements[i].Coefficient + "x");
                     else
-                        result.Append(polynomialElements[i].Coefficient + "x + ");
+                        result.Append(" +" + polynomialElements[i].Coefficient + "x");
                 }
-                else
-                    result.Append(polynomialElements[i].Coefficient + "x^(" + polynomialElements[i].Power + ") + ");
+
+                if (polynomialElements[i].Power == 0)
+                {
+                    if (polynomialElements[i].Coefficient < 0)
+                        result.Append(" " + polynomialElements[i].Coefficient);
+                    else
+                        result.Append(" +" + polynomialElements[i].Coefficient);
+                }
+
+                if (polynomialElements[i].Power == Power)
+                {
+                    if (polynomialElements[i].Coefficient < 0)
+                        result.Append(" " + polynomialElements[i].Coefficient + "x^(" + polynomialElements[i].Power + ")");
+                    else
+                        result.Append(polynomialElements[i].Coefficient + "x^(" + polynomialElements[i].Power + ")");
+                }
+
+                if (polynomialElements[i].Power < Power && polynomialElements[i].Power > 1)
+                {
+                    if (polynomialElements[i].Coefficient < 0)
+                        result.Append(" " + polynomialElements[i].Coefficient + "x^(" + polynomialElements[i].Power + ")");
+                    else
+                        result.Append(" +" + polynomialElements[i].Coefficient + "x^(" + polynomialElements[i].Power + ")");
+                }
             }
 
             return result.ToString();
@@ -116,6 +227,11 @@ namespace PolynomialLibrary
             }
 
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
         }
 
         public int CompareTo(object obj)

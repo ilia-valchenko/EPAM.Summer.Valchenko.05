@@ -1,0 +1,10 @@
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\PolynomialLibrary.Tests.dll
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\PolynomialLibrary.Tests.pdb
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\PolynomialLibrary.dll
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\PolynomialLibrary.pdb
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\obj\Debug\PolynomialLibrary.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\obj\Debug\PolynomialLibrary.Tests.dll
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary.Tests\obj\Debug\PolynomialLibrary.Tests.pdb
