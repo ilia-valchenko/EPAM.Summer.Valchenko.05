@@ -2,3 +2,4 @@ C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\Polynomial
 C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary\bin\Debug\PolynomialLibrary.pdb
 C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary\obj\Debug\PolynomialLibrary.dll
 C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary\obj\Debug\PolynomialLibrary.pdb
+C:\Users\Ilia\Documents\Visual Studio 2015\Projects\PolynomialLibrary\PolynomialLibrary\obj\Debug\PolynomialLibrary.csprojResolveAssemblyReference.cache
